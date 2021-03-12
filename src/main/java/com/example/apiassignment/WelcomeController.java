@@ -13,15 +13,15 @@ public class WelcomeController {
 
 	private static final String message = "Welcome to the machine.";
 
-	private static final String currentTime() {
+	private static final String currentISOTime() {
 		LocalDateTime currentDateTime = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-		String formattedDateTime = currentDateTime.format(formatter);
-		return formattedDateTime;
+		DateTimeFormatter formatter = DateTimeFormatter.ISO_TIME;
+		String formattedISOTime = currentDateTime.format(formatter);
+		return formattedISOTime;
 	}
 
 	@GetMapping("/welcome")
 	public Welcome welcome() {
-		return new Welcome(message, currentTime());
+		return new Welcome(message, currentISOTime());
 	}
 }
