@@ -6,11 +6,16 @@ name: Playing around here
 # or API.
 on:
   workflow_dispatch:
+    inputs:
+      test-command:
+        description: 'Test command to use'
+        default: './mvnw clean test'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  run-tests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -24,5 +29,5 @@ jobs:
         java-version: '11.0.10'
         java-package: jdk
         architecture: x64
-    - name: run tests 
-        run: ./mvnw clean test
+    - name: run tests
+        run: ${{ github.event.inputs.test-command }}
