@@ -30,4 +30,4 @@ jobs:
         java-package: jdk
         architecture: x64
     - name: run tests
-        run: ${{ github.event.inputs.test-command }}
+      run: ${{ github.event.inputs.test-command }}
