@@ -33,7 +33,8 @@ public class HttpRequestTest {
     String timestamp = obj.getString("timestamp");
     // this is a little hacky. i originally intended to grab the pattern of the timestamp
     // returned in the json. But then I realized that parsing the text with LocalTime wouldn't
-    // work unless it was a valid date in the first place.
+    // work unless it was a valid date in the first place.  Parsing the string does not change
+		// the pattern.
     assertThat(LocalTime.parse(timestamp));
   }
 }

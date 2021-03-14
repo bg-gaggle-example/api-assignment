@@ -1,0 +1,32 @@
+# Workflow to demonstrate docker is running with a quick cURL test
+
+name: docker is running demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 'endpoint to test'
+        default: '/welcome'
+        required: true
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Java JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11.0.10'
+        java-package: jdk
+        architecture: x64
+    - name: build jar
+      run: ./mvnw clean package
+      name: build docker image
+      run: docker build -t springio/api-assignment .
+      name: run container
+      run: docker run -p 8080:8080 springio/api-assignment
+      name: run cURL against endpoint
+      run: curl --request GET http://localhost:8080/${{ github.event.inputs.endpoint }}
