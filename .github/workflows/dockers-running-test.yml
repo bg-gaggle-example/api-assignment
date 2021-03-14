@@ -24,6 +24,8 @@ jobs:
         architecture: x64
     - name: build jar
       run: ./mvnw clean package
+    - name: cat /etc/hosts
+      run: cat /etc/hosts
     - name: build docker image
       run: docker build -t springio/api-assignment .
     - name: run container
