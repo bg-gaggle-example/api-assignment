@@ -7,7 +7,7 @@ on:
     inputs:
       endpoint:
         description: 'endpoint to test'
-        default: '/welcome'
+        default: 'welcome'
         required: true
 
 jobs:
@@ -29,4 +29,4 @@ jobs:
     - name: run container
       run: docker run -d -p 8080:8080 springio/api-assignment
     - name: run cURL against endpoint
-      run: curl --request GET http://localhost:8080/${{ github.event.inputs.endpoint }}
+      run: curl --request GET http://127.0.0.1:8080/${{ github.event.inputs.endpoint }}
