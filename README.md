@@ -40,7 +40,7 @@ Fortunately for me, Maven makes it easy to run tests in an automated fashion.  A
 
 You'll find the commit which includes the test under this PR here: https://github.com/bg-gaggle-example/api-assignment/pull/4  
 
-I included two web layer tests and one smoke test just for good measure.
+I included two web layer tests and one smoke test just for good measure.  At this point in the project it was nice to be able to quickly run `/.mvnw clean test` to run the tests.
 
 3. `The project should include automation to build the API as a Docker image and automation to test the image.`  
 
