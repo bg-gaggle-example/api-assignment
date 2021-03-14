@@ -54,4 +54,21 @@ At this point, I could run the following commands and see the json returning whi
 `docker run -p 8080:8080 springio/api-assignment`  
 `curl --request GET http://localhost:8080/welcome`  
 
-more on this in just a bit.
+more on this in just a bit.  
+
+4. `EXTRA CREDIT - demonstrate all the build and test automation in a CI job with GitHub Actions.`  
+
+I had some fun with this part, as I hadn't previously used Github Actions before.  I originally intended to demonstrate the cURL command above running in a job one could manually kick off, but I kept encountering a cURL error, and in the interest of time I scratched that idea and created two jobs to demonstrate the .jar building, the tests running, and in a separate job, sanity checking that the docker container was running.  Here are those two jobs which you can try yourself if you'd like:  
+
+[test automation demonstration](https://github.com/bg-gaggle-example/api-assignment/actions/workflows/manual-mvn-test.yml)  
+
+this one builds the app fresh, runs the tests over the web layer (and the smoke test)  
+
+[docker is running demo](https://github.com/bg-gaggle-example/api-assignment/actions/workflows/dockers-running-test.yml)  
+
+this one builds the docker container from the Dockerfile, runs the image, and then runs a little bash script to make sure the container is up.
+
+5. some thoughts
+
+I enjoyed this assignment.  It was broad enough for me to make a wide variety of decisions in terms of technology selection, but specific enough I didn't get in the weeds too much.  Thanks for the opportunity, and I hope this project is illustrative of my technical qualifications.  
+
