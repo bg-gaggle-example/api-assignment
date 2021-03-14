@@ -38,7 +38,7 @@ OS name: "linux", version: "5.8.0-44-generic", arch: "amd64", family: "unix"`
 
 Fortunately for me, Maven makes it easy to run tests in an automated fashion.  And Spring docs include a nice introduction on how to test your APIs.  I followed this generally: https://spring.io/guides/gs/testing-web/  
 
-You'll find the commit which includes the test under this PR here: https://github.com/bg-gaggle-example/api-assignment/pull/4  
+You'll find the commit which includes the tests under this PR here: https://github.com/bg-gaggle-example/api-assignment/pull/4  
 
 I included two web layer tests and one smoke test just for good measure.  At this point in the project it was nice to be able to quickly run `/.mvnw clean test` to run the tests.
 
