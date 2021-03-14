@@ -27,7 +27,7 @@ OS name: "linux", version: "5.8.0-44-generic", arch: "amd64", family: "unix"`
 
 
   * `a. message - this field should be a string with the value of “Welcome to the machine.”`  
-  achived here: https://github.com/bg-gaggle-example/api-assignment/pull/1  
+  achieved here: https://github.com/bg-gaggle-example/api-assignment/pull/1  
   * `b. timestamp - this field should be a string with the value of the current time as an ISO 8701 timestamp`  
   also implemented in the above commit featured in that PR.  **note:** ISO 8701 doesn't exist.  As a person usually focused on testing I thought this was humorous or an honest mistake.  Either way, I used ISO 8601 as it's implemented here: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ISO_TIME
   
