@@ -1,4 +1,4 @@
-# Workflow to demonstrate docker is running with a quick cURL test
+# Workflow to demonstrate docker is running
 
 name: docker is running demo
 
@@ -28,5 +28,5 @@ jobs:
       run: docker build -t springio/api-assignment .
     - name: run container
       run: docker run -d -p 80:8080 springio/api-assignment
-    - name: run cURL against endpoint
-      run: curl http://localhost:80/${{ github.event.inputs.endpoint }}
+    - name: check if container is running
+      run: if [ $(docker inspect -f '{{.State.Running}}' test) = "true" ]; then echo "container's running"; else echo "it's not running"; fi
