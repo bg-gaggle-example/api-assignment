@@ -5,9 +5,9 @@ name: docker is running demo
 on:
   workflow_dispatch:
     inputs:
-      endpoint:
-        description: 'endpoint to test'
-        default: 'welcome'
+      docker-name:
+        description: 'name to test'
+        default: 'test'
         required: true
 
 jobs:
@@ -27,6 +27,6 @@ jobs:
     - name: build docker image
       run: docker build -t springio/api-assignment .
     - name: run container
-      run: docker run -d -p 80:8080 springio/api-assignment
+      run: docker run -d -p 80:8080 --name test springio/api-assignment
     - name: check if container is running
-      run: if [ $(docker inspect -f '{{.State.Running}}' test) = "true" ]; then echo "container's running"; else echo "it's not running"; fi
+      run: if [ $(docker inspect -f '{{.State.Running}}' ${{ github.event.inputs.docker-name }}) = "true" ]; then echo "container's running"; else echo "it's not running"; fi
