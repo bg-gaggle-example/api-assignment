@@ -1,0 +1,33 @@
+# This is a basic workflow that is manually triggered
+
+name: Playing around here
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    inputs:
+      test-command:
+        description: 'Test command to use'
+        default: './mvnw clean test'
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  run-tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v2
+    # Runs a single command using the runners shell
+    - name: Set up Java JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11.0.10'
+        java-package: jdk
+        architecture: x64
+    - name: run tests
+        run: ${{ github.event.inputs.test-command }}
