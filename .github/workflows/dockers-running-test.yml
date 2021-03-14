@@ -24,9 +24,9 @@ jobs:
         architecture: x64
     - name: build jar
       run: ./mvnw clean package
-      name: build docker image
+    - name: build docker image
       run: docker build -t springio/api-assignment .
-      name: run container
+    - name: run container
       run: docker run -p 8080:8080 springio/api-assignment
-      name: run cURL against endpoint
+    - name: run cURL against endpoint
       run: curl --request GET http://localhost:8080/${{ github.event.inputs.endpoint }}
